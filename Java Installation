@@ -1,0 +1,30 @@
+To installed Java on a Linux system simulated within Windows without using Virtualbox .
+ Step 1: Enable WSL
+ 1. Open PowerShell as Administrator
+ 2. Run the following command:
+ wsl --install
+ 3. Restart your computer when prompted.
+ 4. After restart, choose Ubuntu or install it from the Microsoft Store.
+ Step 2: Open Ubuntu (WSL)- Search for 'Ubuntu' in Start Menu and open it.- It will initialize and ask for a username and password.
+ Step 3: Update the Package List
+ Run the following command:
+ sudo apt update
+ Step 4: Install Java (OpenJDK 8 or 11)- For Java 8:
+ sudo apt install openjdk-8-jdk -y- For Java 11:
+ sudo apt install openjdk-11-jdk -y
+ Step 5: Verify Java Installation
+ Run:
+ java -version
+ Expected output:
+ openjdk version "1.8.0_xxx" ...
+ Step 6: Set JAVA_HOME Environment Variable (Optional)
+ 1. Open .bashrc file:
+ nano ~/.bashrc
+ 2. Add the following lines at the end:
+ export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+ export PATH=$JAVA_HOME/bin:$PATH
+ 3. Save and exit (Ctrl+X, then Y, then Enter)
+ 4. Reload bashrc:
+ source ~/.bashrc
+ 5. Verify JAVA_HOME is set:
+ echo $JAVA_HOME
